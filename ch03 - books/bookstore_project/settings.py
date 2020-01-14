@@ -37,9 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     # Third-party
     'crispy_forms',
+    'allauth',
+    'allauth.account',
 
     # Local
     'users.apps.UsersConfig',
@@ -144,6 +147,22 @@ STATICFILES_FINDERS = [
 # Define CustomUser
 AUTH_USER_MODEL = 'users.CustomUser'
 
-# URL to be redirected after login/logout
+# django-allauth config
 LOGIN_REDIRECT_URL  = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+#LOGOUT_REDIRECT_URL = 'home' # Django's original auth
+ACCOUNT_LOGOUT_REDIRECT = 'home' # Used by django-allauth: overides LOGOUT_REDIRECT_URL
+
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+ACCOUNT_SESSION_REMEMBER = True # Always remember login sessions (w/o asking)
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True

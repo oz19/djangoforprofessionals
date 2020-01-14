@@ -130,3 +130,7 @@ STATIC_URL = '/static/'
 
 # Define CustomUser
 AUTH_USER_MODEL = 'users.CustomUser'
+
+# URL to be redirected after login/logout
+LOGIN_REDIRECT_URL  = 'home'
+LOGOUT_REDIRECT_URL = 'home'

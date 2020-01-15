@@ -147,6 +147,16 @@ STATICFILES_FINDERS = [
 # Define CustomUser
 AUTH_USER_MODEL = 'users.CustomUser'
 
+# Email
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'admin@djangobookstore.com'
+#EMAIL_HOST
+#EMAIL_HOST_USER
+#EMAIL_HOST_PASSWORD
+#EMAIL_PORT
+#EMAIL_USE_TLS
+
 # django-allauth config
 LOGIN_REDIRECT_URL  = 'home'
 #LOGOUT_REDIRECT_URL = 'home' # Django's original auth
@@ -159,10 +169,11 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 ACCOUNT_SESSION_REMEMBER = True # Always remember login sessions (w/o asking)
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
+
+

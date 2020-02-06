@@ -5,10 +5,10 @@ services:
     build: .
     command: python /code/manage.py runserver 0.0.0.0:8000
     environment:
-      - SECRET_KEY=8n3q8n43qvpoh&k=3z(4af^ig@dxgvpb0snz37($$9*0n0+9%fa
+      - SECRET_KEY=${SECRET_KEY}
       - DEBUG=1
-      - STRIPE_TEST_PUBLISHABLE_KEY=pk_test_Ua7P14pj34R3ERsr2PH4yJm500GXd7vi2Z
-      - STRIPE_TEST_SECRET_KEY=sk_test_SDlehF21khQF54ae1WugfRvC00ClVSc011
+      - STRIPE_TEST_PUBLISHABLE_KEY=${STRIPE_TEST_PUBLISHABLE_KEY}
+      - STRIPE_TEST_SECRET_KEY=${STRIPE_TEST_SECRET_KEY}
     volumes:
       - .:/code
     ports:
